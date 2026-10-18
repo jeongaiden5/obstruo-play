@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1f4d3f">
+<title>Obstruo! 테스트 플레이</title>
+<meta name="description" content="블록을 놓아 줄을 지우고, 광석과 유물로 덱을 키워 6스테이지 보스를 넘는 퍼즐 로그라이크. 테스트 플레이에 참여해 주세요.">
+<link rel="icon" href="data:,">
+<style>
+/* 배치: 한 칸짜리 세로 흐름. 게임의 어두운 초록 펠트 한 가지 모습 */
+:root { color-scheme: dark; --bg: #1f4d3f; --panel: #374244; --sunk: #1a2122; --line: #10181a; --fg: #fff; --muted: #b9c7c2; --lamp: #f3b958; --red: #fe5f55; --blue: #009dff;
+  --f: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f); font-size: 15px; line-height: 1.6; }
+.wrap { max-width: 720px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 48px; min-width: 0; }
+h1 { margin: 0; font-size: 40px; line-height: 1.1; letter-spacing: -0.01em; text-shadow: 0 3px 0 var(--line); }
+h1 span { color: var(--red); }
+.eyebrow { color: var(--lamp); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.lead { color: var(--muted); max-width: 48ch; margin: 12px 0 20px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 10px 22px; font: inherit; font-weight: 700; font-size: 17px; color: var(--fg); background: var(--red); border: 3px solid var(--line); box-shadow: 0 4px 0 var(--line); text-decoration: none; }
+.btn.ghost { background: var(--blue); }
+.btn:focus-visible { outline: 2px solid var(--lamp); outline-offset: 2px; }
+h2 { font-size: 18px; margin: 32px 0 8px; }
+p { margin: 0 0 10px; }
+ul { margin: 0; padding-left: 20px; }
+li { margin-bottom: 4px; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 12px; }
+.shots img { width: 100%; min-width: 0; height: auto; max-width: 100%; display: block; border: 3px solid var(--line); box-shadow: 0 4px 0 var(--line); image-rendering: pixelated; }
+.note { background: var(--sunk); border: 3px solid var(--line); padding: 12px 14px; color: var(--muted); font-size: 13px; }
+.foot { margin-top: 32px; color: var(--muted); font-size: 12px; border-top: 3px solid var(--line); padding-top: 12px; }
+a { color: var(--lamp); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">테스트 플레이 모집</div>
+  <h1>Obstruo<span>!</span></h1>
+  <p class="lead">블록을 놓아 줄을 지우고, 광석과 유물로 덱을 키워 6스테이지 보스를 넘는 퍼즐 로그라이크예요. 테트리스의 손맛에 발라트로의 덱 빌딩을 더했어요. 지금은 휴대폰 브라우저에서 바로 할 수 있는 테스트판이에요.</p>
+  <div class="btns">
+    <a class="btn" href="play.html">플레이 (휴대폰 세로 권장)</a>
+    <a class="btn ghost" href="relics.html">유물 도감</a>
+  </div>
+  <div class="shots" aria-label="화면 사진">
+    <img src="img/tutorial.png" alt="핼퍼트가 첫 블록을 놓는 자리를 알려 주는 연습 갱도 화면" width="375" height="700">
+    <img src="img/play.png" alt="보드에 블록을 놓고 붐을 준비하는 플레이 화면" width="375" height="700">
+    <img src="img/shop.png" alt="유물 상자를 열어 유물을 고르는 상점 화면" width="375" height="700">
+  </div>
+  <h2>어떻게 하나요</h2>
+  <ul>
+    <li>처음이면 핼퍼트가 연습 갱도에서 기본을 알려 줘요(5~8분). 언제든 건너뛸 수 있어요.</li>
+    <li>한 판은 6스테이지 × 3라운드예요. 라운드마다 붐 4번 안에 목표 점수를 넘기면 돼요.</li>
+    <li>지면 힘은 사라지지만 탐사 점수와 발견 도감은 남아요. 여러 판을 거듭하면 새 유물과 효과가 열려요.</li>
+    <li>진행은 이 브라우저에만 저장돼요. 다른 기기나 시크릿 창에서는 처음부터예요.</li>
+  </ul>
+  <h2>무엇을 보나요</h2>
+  <p class="note">테스트 기간에는 익명 플레이 기록을 받아요. 어디까지 갔나, 라운드에 몇 초 걸렸나, 상점에서 무엇을 샀나, 연습 갱도를 어디서 건너뛰었나 같은 숫자뿐이에요. 이름·이메일·글은 받지 않고, 게임 첫 화면의 '끄기'로 언제든 끌 수 있어요.</p>
+  <h2>알려진 것</h2>
+  <ul>
+    <li>목표 점수와 유물 수치는 아직 조정 중이에요. 너무 쉽거나 어려운 구간이 있으면 그게 바로 알고 싶은 거예요.</li>
+    <li>소리와 음악은 첫 터치 뒤에 나와요. 첫 화면의 '소리' 버튼으로 끌 수 있어요.</li>
+    <li>가로 화면과 PC 창은 아직 안 맞춰져 있어요.</li>
+  </ul>
+  <p class="foot">프로토타입 · 코드와 그림은 모두 자체 제작 · 가로 화면·PC는 다음 단계</p>
+</div>
+</body>
+</html>
