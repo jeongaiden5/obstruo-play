@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" href="data:,">
-<script>window.OBSTRUO={"telemetry":"https://obstruo-telemetry.obstruo-lab.workers.dev/e","build":"2fd3435.1018"};</script>
+<script>window.OBSTRUO={"telemetry":"https://obstruo-telemetry.obstruo-lab.workers.dev/e","build":"57f1de5.1018"};</script>
 <style>html,body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -2608,7 +2608,8 @@ table.judge tr.hit td { color: var(--lamp); }
       }).join('')}</div>`;
     }
 
-    // 유물 상자
+    // 유물 상자 (연습 갱도 1-1 뒤엔 숨김)
+    $('#shelfGem').hidden = tutHidesGems();
     $('#shelfGemNote').textContent = `내 유물 ${S.gems.length} / ${gemMax()} · 열면 유물이 나와요. 그중 1개를 골라요. 팔기는 아래 '유물'에서.`;
     if (sh.opened && sh.opened.kind === 'gem') {
       const { options } = sh.opened, legend = options.some(isLegend);
@@ -2656,7 +2657,7 @@ table.judge tr.hit td { color: var(--lamp); }
       sh.opened = { kind: 'block', tier, options };
     } else if (d.gem) {
       const price = orePrice(GEM_PRICE);
-      if (sh.gemOpened >= gemOpens() || S.stones < price || S.gems.length >= gemMax() || !gemPool().length) return false;
+      if (tutHidesGems() || sh.gemOpened >= gemOpens() || S.stones < price || S.gems.length >= gemMax() || !gemPool().length) return false;
       S.stones -= price;
       sh.gemOpened++;
       sh.opened = { kind: 'gem', options: gemOptions(2 + perkN('appraiser')) };
@@ -2825,6 +2826,8 @@ table.judge tr.hit td { color: var(--lamp); }
       renderAll();
     }
   }
+  // 연습 갱도 1-1 뒤 상점엔 유물 상자가 없어요(한 번에 하나씩: 광석 먼저, 유물은 1-2 뒤부터)
+  function tutHidesGems() { return !!S.practice && S.round === 1; }
   // 상점을 떠나려면 해야 할 것: 1라운드 뒤엔 라운드 보상 + 광석 하나, 2라운드 뒤엔 유물 상자
   function tutShopLocked(sh) {
     if (!S.practice || !sh) return false;
