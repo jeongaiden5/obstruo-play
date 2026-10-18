@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" href="data:,">
-<script>window.OBSTRUO={"telemetry":"https://obstruo-telemetry.obstruo-lab.workers.dev/e","build":"09d61a0.1018"};</script>
+<script>window.OBSTRUO={"telemetry":"https://obstruo-telemetry.obstruo-lab.workers.dev/e","build":"2fd3435.1018"};</script>
 <style>html,body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -624,7 +624,8 @@ table.judge tr.hit td { color: var(--lamp); }
   // 3스테이지(봇이 가장 많이 죽던 벽)는 조금 낮추고, 5·6스테이지는 크게 올려요. 숫자는 밸런스 측정 창에서 잰 뒤 다시 맞춰요
   // 2026-10-10 저녁: 사용자가 세 번 깨 보고 5·6스테이지가 아직 쉽다고 해서 6.5→10, 12→22로 크게 올렸어요 (6-3 보스 57,200점)
   // 2026-10-16: 보스 보상(영구 강화)을 넣은 뒤 사용자가 아직 쉽다고 해서 두 번 올림. 1·2스테이지도 1.6배 (1-3 보스 2,500, 3-3 보스 14,300, 6-3 보스 143,000점). 스테이지마다 약 2배씩 자라는 곡선
-  const STAGE_MUL = [1.6, 2.4, 5.5, 12, 27, 55];
+  // 2026-10-18: 테스트 사이트 첫 폰 플레이에서 1-2(1,730)를 685점으로 못 넘김. 1·2스테이지는 1.6배 전과 비슷하게, 조금만 높게(×1.15): 1.15·1.7 (1스테이지 900·1,240·1,790, 2스테이지 1,770·2,450·3,540). 3스테이지부터는 그대로
+  const STAGE_MUL = [1.15, 1.7, 5.5, 12, 27, 55];
   const stageMul = (stage) => STAGE_MUL[Math.min(STAGE_MUL.length, Math.max(1, stage)) - 1];
   // 보드는 항상 8×8. 보스 패널티 '넓은 보드'가 걸린 3라운드만 10×10이에요
   const boardSize = (round) => (round === 3 && S.pens && S.pens.some((p) => p.id === 'wide') ? 10 : 8);
